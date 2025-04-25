@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¡Domina la Visión en Wild Rift: Guía Pastel!</title>
+    <style>
+        body {
+            font-family: 'Nunito', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #f8bbd0, #bbdefb); /* Rosa y azul pastel */
+            color: #424242; /* Gris oscuro */
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            padding-top: 40px;
+        }
+
+        header {
+            background-color: rgba(255, 255, 255, 0.8);
+            color: #e91e63; /* Rosa fuerte */
+            padding: 40px 0;
+            text-align: center;
+            width: 80%;
+            margin-bottom: 40px;
+            border-radius: 15px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            font-size: 2.8em;
+            margin-bottom: 15px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+        }
+
+        header p {
+            color: #f06292; /* Rosa más claro */
+            font-style: italic;
+        }
+
+        nav {
+            background-color: rgba(255, 255, 255, 0.6);
+            padding: 20px 0;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            text-align: center;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 25px;
+        }
+
+        nav a {
+            color: #9c27b0; /* Morado */
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease, transform 0.2s ease;
+        }
+
+        nav a:hover {
+            color: #ba68c8; /* Morado más claro */
+            transform: scale(1.1);
+        }
+
+        main {
+            width: 85%;
+            max-width: 1000px;
+            padding: 40px;
+            background-color: rgba(255, 255, 255, 0.5);
+            border-radius: 15px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        }
+
+        section {
+            padding: 30px;
+            margin-bottom: 30px;
+            background-color: rgba(255, 255, 255, 0.4);
+            border-radius: 12px;
+            border: 1px solid rgba(156, 39, 176, 0.1); /* Borde morado */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        h2, h3 {
+            color: #673ab7; /* Morado más oscuro */
+            text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.05);
+        }
+
+        .vision-type, .ward-spot, #quiz-container .question {
+            margin-bottom: 25px;
+            padding: 25px;
+            border: 1px dashed rgba(156, 39, 176, 0.2);
+            border-radius: 10px;
+            background-color: rgba(186, 104, 200, 0.3); /* Morado claro */
+        }
+
+        .vision-type h3::before, .ward-spot h3::before, #quiz h2::before {
+            content: "\f06e"; /* Icono de ojo */
+            font-family: "Font Awesome 5 Free";
+            font-weight: 900;
+            margin-right: 15px;
+            color: #ffab91;
+        }
+
+        #quiz h2::before {
+            content: "\f0eb"; /* Icono de bombilla */
+        }
+
+        .vision-type h3, .ward-spot h3 {
+            margin-top: 0;
+            color: #ba68c8;
+        }
+
+        #quiz {
+            text-align: center;
+        }
+
+        #quiz-container {
+            margin-bottom: 40px;
+        }
+
+        .question h3 {
+            color: #7e57c2; /* Morado más claro */
+            margin-top: 0;
+        }
+
+        .options label {
+            display: block;
+            margin-bottom: 15px;
+            color: #546e7a;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            padding: 18px;
+            border-radius: 8px;
+            background-color: rgba(255, 255, 255, 0.7);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+
+        .options label:hover {
+            background-color: rgba(255, 255, 255, 0.9);
+            transform: scale(1.02);
+        }
+
+        .options input[type="radio"] {
+            margin-right: 10px;
+        }
+
+        #submit-quiz {
+            background-color: #ffcc80;
+            color: #37474f;
+            border: none;
+            padding: 18px 35px;
+            font-size: 1.2em;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        #submit-quiz:hover {
+            background-color: #ffb74d;
+            transform: scale(1.05);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        #results {
+            font-weight: bold;
+            margin-top: 40px;
+            color: #aed581;
+            font-size: 1.4em;
+            text-align: center;
+        }
+
+        footer {
+            background-color: rgba(255, 255, 255, 0.8);
+            color: #546e7a;
+            text-align: center;
+            padding: 25px 0;
+            width: 80%;
+            margin-top: 40px;
+            border-radius: 15px;
+            box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.08);
+        }
+
+        /* Estilos interactivos */
+        .correct-answer {
+            background-color: rgba(129, 212, 250, 0.5) !important; /* Azul pastel claro */
+            color: #263238 !important;
+            font-weight: bold;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .incorrect-answer {
+            background-color: rgba(255, 171, 145, 0.5) !important; /* Naranja pastel muy claro */
+            color: #263238 !important;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Estilos para la sección de roles */
+        #vision-por-rol ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        #vision-por-rol li {
+            margin-bottom: 20px;
+            padding: 15px;
+            border-radius: 8px;
+            background-color: rgba(255, 255, 255, 0.6);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+
+        #vision-por-rol h3 {
+            color: #f06292;
+            margin-bottom: 10px;
+        }
+
+        #vision-por-rol h3::before {
+            content: "\f1ae"; /* Icono de user-secret */
+            font-family: "Font Awesome 5 Free";
+            font-weight: 900;
+            margin-right: 15px;
+            color: #9575cd;
+        }
+
+        #vision-por-rol ul ul {
+            list-style: disc;
+            padding-left: 20px;
+            margin-top: 10px;
+        }
+
+        /* Eliminamos la rotación de las secciones */
+        section {
+            transform: none;
+        }
+
+        .vision-type, .ward-spot {
+            border-left: 5px solid #9c27b0; /* Borde morado */
+        }
+
+        /* Animaciones */
+        nav a {
+            transition: color 0.3s ease, transform 0.2s ease;
+        }
+
+        nav a:hover {
+            transform: scale(1.1) translateY(-2px);
+        }
+
+        #submit-quiz {
+            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+        }
+
+        #submit-quiz:hover {
+            transform: scale(1.05) translateY(-2px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <h1>¡Domina la Visión en Wild Rift: Guía Pastel!</h1>
+        <p style="color:#f06292;">Descubre el arte de ver en el mundo de Wild Rift.</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#introduccion">¿Por qué Visión?</a></li>
+            <li><a href="#tipos-de-vision">Tipos de Ojos</a></li>
+            <li><a href="#colocacion-de-guardianes">¡Centinelas Estratégicos!</a></li>
+            <li><a href="#negacion-de-vision">Niebla Desvanecida</a></li>
+            <li><a href="#consejos-avanzados">Consejos Avanzados</a></li>
+            <li><a href="#vision-por-rol">Visión por Rol</a></li>
+            <li><a href="#quiz">¡Prueba tu Visión!</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section id="introduccion">
+            <h2>La Importancia de Ver en las Sombras</h2>
+            <p>En la Grieta Salvaje, la información es poder. La visión te permite anticipar emboscadas, rastrear al enemigo y asegurar objetivos cruciales. Domina el arte de iluminar la oscuridad y obtén una ventaja estratégica sobre tus oponentes.</p>
+        </section>
+
+        <section id="tipos-de-vision">
+            <h2>Conoce tus Herramientas de Iluminación</h2>
+            <div class="vision-type">
+                <h3>Guardián de Visión (El Ojo que Persiste)</h3>
+                <p>Tu fuente confiable de información en un área determinada durante un tiempo limitado. Colócalo sabiamente para tener una vigilancia constante.</p>
+            </div>
+            <div class="vision-type">
+                <h3>Guardián Centinela (El Revelador de Sombras)</h3>
+                <p>Aunque de menor alcance, revela lo que se oculta: guardianes enemigos y unidades invisibles. Úsalo para limpiar el camino antes de una jugada.</p>
+            </div>
+            <div class="vision-type">
+                <h3>Planta de Exploración (El Vistazo Rápido)</h3>
+                <p>Una ráfaga de visión en una dirección. Utilízala para explorar rápidamente zonas peligrosas sin exponerte.</p>
+            </div>
+        </section>
+
+        <section id="colocacion-de-guardianes">
+            <h2>¡Maestro de la Ubicación Estratégica!</h2>
+            <div class="ward-spot">
+                <h3>Puntos de Control en la Jungla Enemiga</h3>
+                <p>Guardianes bien ubicados aquí te alertarán sobre los movimientos del junglero rival, permitiéndote predecir ganks y coordinar contraataques.</p>
+                <p><strong>Zonas Clave:</strong> Entradas a campamentos, cruces importantes.</p>
+            </div>
+            <div class="ward-spot">
+                <h3>Protección en los Carriles: Centinelas Defensivos</h3>
+                <p>Un guardián a tiempo puede salvarte de una emboscada. Colócalos en los flancos y en el río para tener una alerta temprana.</p>
+                <p><strong>Lugares Seguros:</strong> Arbustos laterales, río.</p>
+            </div>
+        </section>
+
+        <section id="negacion-de-vision">
+            <h2>Disipando la Niebla Enemiga</h2>
+            <p>Eliminar los guardianes enemigos es crucial para negarles información y crear oportunidades para tu equipo. Usa tu Centinela de forma proactiva.</p>
+            <p><strong>Tácticas Avanzadas:</strong> Limpia antes de objetivos, niega rutas de escape.</p>
+        </section>
+
+        <section id="consejos-avanzados">
+            <h2>¡Visión para Jugadores de Élite!</h2>
+            <ul>
+                <li><strong>Sincronización con Objetivos:</strong> Wardea alrededor de Dragones y Barones antes de que aparezcan.</li>
+                <li><strong>Lectura del Mapa:</strong> La ausencia de visión también es información valiosa.</li>
+                <li><strong>Uso Inteligente de Plantas:</strong> No las desperdicies, úsalas para confirmar o explorar.</li>
+                <li><strong>Comunicación Constante:</strong> Informa a tu equipo sobre la visión enemiga y la tuya.</li>
+            </ul>
+        </section>
+
+        <section id="vision-por-rol">
+            <h2>La Visión Adaptada a tu Papel</h2>
+            <ul>
+                <li>
+                    <h3>Luchador (Top/Jungla)</h3>
+                    <ul>
+                        <li><strong>Temprano:</strong> Guardianes defensivos contra ganks, rastreo del jungla enemigo.</li>
+                        <li><strong>Medio:</strong> Visión en objetivos, limpieza para flanqueos.</li>
+                        <li><strong>Tardío:</strong> Control alrededor de objetivos finales, negación en asedios.</li>
+                    </ul>
+                </li>
+                <li>
+                    <h3>Mago/Tirador (Mid/ADC)</h3>
+                    <ul>
+                        <li><strong>Temprano:</strong> Protección contra ganks en flancos y río.</li>
+                        <li><strong>Medio:</strong> Seguridad en áreas con visión aliada, visión defensiva en flancos.</li>
+                        <li><strong>Tardío:</strong> Supervivencia con visión en rutas de movimiento.</li>
+                    </ul>
+                </li>
+                <li>
+                    <h3>Apoyo (Support)</h3>
+                    <ul>
+                        <li><strong>Temprano:</strong> Control de visión en línea, presión ofensiva y defensa.</li>
+                        <li><strong>Medio:</strong> Rotación para visión en objetivos y rutas enemigas.</li>
+                        <li><strong>Tardío:</strong> Control de visión en objetivos clave , habilidades/objetos de visión en peleas.</li>
+                    </ul>
+                </li>
+            </ul>
+        </section>
+
+        <section id="quiz">
+            <h2>¡Pon a Prueba tu Paleta de Visión!</h2>
+            <div id="quiz-container">
+            </div>
+            <button id="submit-quiz">¡Evaluar mi Visión!</button>
+            <div id="results"></div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2025 Explorando la Grieta Pastel - Tu Lienzo de la Victoria.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const quizContainer = document.getElementById('quiz-container');
+            const submitButton = document.getElementById('submit-quiz');
+            const resultsContainer = document.getElementById('results');
+            const quizData = [
+                {
+                    question: "¿Cuál es el alcance aproximado de un Guardián de Visión estándar?",
+                    options: ["600 unidades", "800 unidades", "1000 unidades", "Ilimitado"],
+                    correctAnswer: "800 unidades"
+                },
+                {
+                    question: "¿Qué revela un Guardián Centinela?",
+                    options: ["Solo campeones enemigos", "Solo guardianes enemigos", "Campeones y guardianes enemigos", "Solo monstruos de la jungla"],
+                    correctAnswer: "Campeones y guardianes enemigos"
+                },
+                {
+                    question: "¿Cuál es la duración base de un Guardián de Visión?",
+                    options: ["30 segundos", "60 segundos", "90 segundos", "120 segundos"],
+                    correctAnswer: "60 segundos"
+                },
+                {
+                    question: "¿En qué lugares estratégicos de la jungla enemiga es crucial colocar guardianes?",
+                    options: ["Dentro de su base", "En los carriles vacíos", "Entradas a campamentos y cruces importantes", "Cerca de su torre inhibidora"],
+                    correctAnswer: "Entradas a campamentos y cruces importantes"
+                },
+                {
+                    question: "La principal función de negar la visión enemiga es:",
+                    options: ["Ganar más oro", "Hacer que los monstruos sean más débiles", "Privarlos de información y facilitar emboscadas", "Aumentar la velocidad de movimiento aliado"],
+                    correctAnswer: "Privarlos de información y facilitar emboscadas"
+                },
+                {
+                    question: "¿Qué planta otorga visión en una línea recta?",
+                    options: ["Planta de Curación", "Planta de Explosión", "Planta de Visión", "Planta de Velocidad"],
+                    correctAnswer: "Planta de Visión"
+                },
+                {
+                    question: "¿Qué tipo de guardián deshabilita los guardianes enemigos cercanos?",
+                    options: ["Guardián de Visión", "Guardián Centinela", "Ambos", "Ninguno"],
+                    correctAnswer: "Guardián Centinela"
+                },
+                {
+                    question: "¿Alrededor de qué objetivo es crucial tener visión para evitar robos?",
+                    options: ["El súbdito cañón", "El gólem anciano", "El Dragón y el Barón Nashor", "El centinela del carril"],
+                    correctAnswer: "El Dragón y el Barón Nashor"
+                },
+                {
+                    question: "¿Qué rol suele ser el principal responsable de la colocación de visión en la fase temprana de la partida?",
+                    options: ["Luchador", "Mago", "Tirador", "Apoyo"],
+                    correctAnswer: "Apoyo"
+                },
+                {
+                    question: "¿Qué información importante nos da la ausencia de guardianes enemigos en una zona?",
+                    options: ["Que no hay enemigos cerca", "Que los enemigos están farmeando en otro lado", "Que los enemigos podrían estar planeando una emboscada", "Que el junglero enemigo está muerto"],
+                    correctAnswer: "Que los enemigos podrían estar planeando una emboscada"
+                }
+            ];
+
+            function generateQuiz() {
+                quizData.forEach((questionData, index) => {
+                    const questionDiv = document.createElement('div');
+                    questionDiv.classList.add('question');
+                    questionDiv.innerHTML = `<h3>Pregunta ${index + 1}: ${questionData.question}</h3>`;
+                    const optionsDiv = document.createElement('div');
+                    optionsDiv.classList.add('options');
+                    questionData.options.forEach((option, optionIndex) => {
+                        const label = document.createElement('label');
+                        const input = document.createElement('input');
+                        input.type = 'radio';
+                        input.name = `question-${index}`;
+                        input.value = option;
+                        label.appendChild(input);
+                        label.appendChild(document.createTextNode(` ${option}`));
+                        optionsDiv.appendChild(label);
+                    });
+                    questionDiv.appendChild(optionsDiv);
+                    quizContainer.appendChild(questionDiv);
+                });
+            }
+
+            function showResults() {
+                const answerContainers = quizContainer.querySelectorAll('.question');
+                let score = 0;
+                quizData.forEach((questionData, index) => {
+                    const answerContainer = answerContainers[index];
+                    const selectedOption = answerContainer.querySelector(`input[name="question-${index}"]:checked`);
+                    const labels = answerContainer.querySelectorAll('.options label');
+
+                    labels.forEach(label => {
+                        label.classList.remove('correct-answer', 'incorrect-answer');
+                    });
+
+                    if (selectedOption) {
+                        if (selectedOption.value === questionData.correctAnswer) {
+                            score++;
+                            const correctLabel = Array.from(labels).find(label => label.querySelector('input').value === questionData.correctAnswer);
+                            correctLabel.classList.add('correct-answer');
+                        } else {
+                            const incorrectLabel = Array.from(labels).find(label => label.querySelector('input:checked'));
+                            incorrectLabel.classList.add('incorrect-answer');
+                            const correctLabel = Array.from(labels).find(label => label.querySelector('input').value === questionData.correctAnswer);
+                            correctLabel.classList.add('correct-answer');
+                        }
+                    }
+                });
+                resultsContainer.textContent = `¡Has revelado ${score} de ${quizData.length} respuestas correctas!`;
+            }
+
+            generateQuiz();
+            submitButton.addEventListener('click', showResults);
+        });
+    </script>
+</body>
+</html>
